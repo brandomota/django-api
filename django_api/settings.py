@@ -3,11 +3,14 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = '7)8xwos4jm=g$i^0zdz)yhctc+u*f^apctae8t%bejykf-!j^n'
+SECRET_KEY = os.environ.get('API_SECRET_KEY', '7)8xwos4jm=g$i^0zdz)yhctc+u*f^apctae8t%bejykf-!j^n')
 
-DEBUG = True
+DEBUG = os.environ.get('API_DEBUG_MODE', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    os.environ.get('API_HOSTNAME')
+]
 
 
 # Application definition
@@ -61,11 +64,11 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'HOST': '',
-        'PORT': '',
-        'USERNAME': '',
-        'PASSWORD': '',
+        'NAME': os.environ.get('DATABASE_NAME','api'),
+        'HOST': os.environ.get('DATABASE_HOST', 'locahost'),
+        'PORT': os.environ.get('DATABASE_PORT', 5432),
+        'USERNAME': os.environ.get('DATABASE_USERNAME','root'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'root'),
     }
 }
 
