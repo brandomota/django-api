@@ -4,7 +4,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import routers
 
-from resender_api.views import ResenderViewSet
+from user.views import UsersViewSet
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -16,7 +16,7 @@ schema_view = get_schema_view(
 )
 
 router = routers.DefaultRouter()
-router.register(r'resender', ResenderViewSet, basename='resender')
+router.register(r'users', UsersViewSet, basename='users')
 
 urlpatterns = [
     path('', include(router.get_urls())),

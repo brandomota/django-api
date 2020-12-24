@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'resender_api.apps.ResenderApiConfig',
+    'user.apps.UserApiConfig',
     'drf_yasg',
     'rest_framework'
 ]
@@ -67,7 +67,7 @@ DATABASES = {
         'NAME': os.environ.get('DATABASE_NAME','api'),
         'HOST': os.environ.get('DATABASE_HOST', 'locahost'),
         'PORT': os.environ.get('DATABASE_PORT', 5432),
-        'USERNAME': os.environ.get('DATABASE_USERNAME','root'),
+        'USER': os.environ.get('DATABASE_USERNAME','root'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'root'),
     }
 }
