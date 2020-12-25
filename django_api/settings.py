@@ -24,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserApiConfig',
     'drf_yasg',
-    'rest_framework'
+    'rest_framework',
+    'purchase_orders.apps.PurchaseOrdersConfig'
 ]
 
 MIDDLEWARE = [

@@ -1,19 +1,20 @@
-import jwt, hashlib
+import hashlib
+import jwt
 from datetime import datetime
-from django.db.models import Q
 from django.conf import settings
-from passlib.hash import pbkdf2_sha256
-from validate_docbr import CPF
+from django.db.models import Q
+
+from django_api.utils import Utils
 from user.models import User
 
 
 class UserService:
 
     def __init__(self):
-        self.cpf_validator = CPF()
+        self.utils = Utils()
 
     def create_user(self, data):
-        self.__validate_cpf(data['cpf'])
+        self.utils.validate_cpf(data['cpf'])
         try:
             new_user = User(cpf=data['cpf'],
                             name=data['name'],
@@ -40,10 +41,6 @@ class UserService:
                 raise Exception('Login incorrect')
         except Exception as e:
             raise e
-
-    def __validate_cpf(self, cpf):
-        if self.cpf_validator.validate(cpf) is False:
-            raise Exception('CPF invalid')
 
     def __generate_password_hash(self, password):
         crypto_module = hashlib.sha256()

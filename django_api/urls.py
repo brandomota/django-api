@@ -4,19 +4,21 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import routers
 
+from purchase_orders.views import PurchaseOrdersViewSet
 from user.views import UsersViewSet
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Snippets API",
+      title="Django API",
       default_version='v1',
-      description="Test description"
+      description="API Django"
    ),
    public=True,
 )
 
 router = routers.DefaultRouter()
-router.register(r'users', UsersViewSet, basename='users')
+router.register('users', UsersViewSet, basename='users')
+router.register('purchase_orders', PurchaseOrdersViewSet, basename='purchase_orders')
 
 urlpatterns = [
     path('', include(router.get_urls())),

@@ -14,8 +14,9 @@ class UsersViewSet(ViewSet):
         super().__init__(**kwargs)
         self.user_service = UserService()
 
-    @swagger_auto_schema(request_body=UserCreationSerializer)
-    @action(methods=['POST'], url_path='users', detail=False)
+    @swagger_auto_schema(request_body=UserCreationSerializer,
+                         responses={201:  openapi.Response('response description', UserSerializer), 400: 'bad request'})
+    @action(methods=['POST'], detail=False)
     def create_user(self, request):
         serializer = UserCreationSerializer(data=request.data)
         if serializer.is_valid():

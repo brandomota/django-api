@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserCreationSerializer(serializers.Serializer):
     name = serializers.CharField(required=True, max_length=255)
     email = serializers.CharField(required=True, max_length=100)
-    cpf = serializers.CharField(required=True, max_length=14, min_length=14, help_text='format: xxx.xxx.xxx-xx')
+    cpf = serializers.CharField(required=True, max_length=11, min_length=11)
     password = serializers.CharField(required=True)
 
 
