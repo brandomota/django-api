@@ -25,3 +25,11 @@ class PurchaseOrdersDetailsSerializer(serializers.Serializer):
     cashback_value = serializers.FloatField(required=True)
     cashback_percentage = serializers.IntegerField(required=True)
     status = serializers.CharField(required=True)
+
+
+class CashbackQuerySerializer(serializers.Serializer):
+    cpf = serializers.CharField(required=True, max_length=11, min_length=11)
+
+
+class CashbackTotalSerializer(serializers.Serializer):
+    credit = serializers.IntegerField(required=True)

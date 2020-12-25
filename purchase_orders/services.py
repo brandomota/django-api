@@ -1,8 +1,10 @@
+import requests
 from datetime import datetime
-
 from dateutil.relativedelta import relativedelta
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from django.conf import settings
+from rest_framework.status import HTTP_200_OK
 
 from django_api.utils import Utils
 from purchase_orders.models import PurchaseOrder
@@ -52,6 +54,20 @@ class PurchaseOrdersService:
             result.append(data)
 
         return result
+
+    def get_cashback_total(self, cpf):
+        try:
+            headers = {'token': str(settings.CASHBACK_API_TOKEN)}
+            query = {'cpf': cpf}
+            request = requests.get(settings.CASHBACK_API_HOST +'v1/cashback', headers=headers, params=query)
+            if request.status_code == HTTP_200_OK:
+                data = request.json()
+                return data['body']
+            else:
+                raise Exception('Cashback API error! try again later...')
+        except Exception as e:
+            raise e
+
 
     def __calculate_cashback_order(self, order):
         order_by_user = PurchaseOrder.objects.filter(Q(user=order.user) &

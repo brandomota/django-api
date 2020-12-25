@@ -6,7 +6,7 @@ from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_201_CREATED, HTTP_2
 from rest_framework.viewsets import ViewSet
 
 from purchase_orders.serializers import PurchaseOrdersCreationSerializer, PurchaseOrdersSerializer, \
-    PurchaseOrdersDetailsSerializer
+    PurchaseOrdersDetailsSerializer, CashbackQuerySerializer, CashbackTotalSerializer
 from purchase_orders.services import PurchaseOrdersService
 
 
@@ -40,6 +40,17 @@ class PurchaseOrdersViewSet(ViewSet):
         try:
             purchase_orders = self.purchase_orders_service.get_all_orders()
             return Response(data=PurchaseOrdersDetailsSerializer(purchase_orders, many=True).data, status=HTTP_200_OK)
+        except Exception as e:
+            return Response(data=str(e), status=HTTP_400_BAD_REQUEST)
+
+    @swagger_auto_schema(query_serializer=CashbackQuerySerializer,
+                         responses={200: openapi.Response('response description',CashbackTotalSerializer),
+                                    400: 'bad request'})
+    @action(methods=['GET'], detail=False)
+    def get_cashback_total(self, request):
+        try:
+            data = self.purchase_orders_service.get_cashback_total(request.query_params['cpf'])
+            return Response(CashbackTotalSerializer(data).data, status=HTTP_200_OK)
         except Exception as e:
             return Response(data=str(e), status=HTTP_400_BAD_REQUEST)
 
