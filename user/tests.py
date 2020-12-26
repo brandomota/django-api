@@ -69,7 +69,6 @@ class UserTest(TestCase):
                                          content_type='application/json')
         data = response.json()
         self.assertEqual(response.status_code, 201, 'the status code is incorrect')
-        self.assertEqual(data['id'], 2, 'new user id is incorrect')
         self.assertEqual(data['name'], 'user2', 'name returned is incorrect')
         self.assertEqual(data['email'], 'user2@test.com', 'email returned is incorrect')
         self.assertEqual(data['cpf'], '07783068014', 'cpf returned is incorrect')

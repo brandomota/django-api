@@ -3,22 +3,127 @@
     "model": "user.User",
     "pk": 1,
     "fields": {
-        "name": "user 1",
-        "email": "user1@test.com",
-        "cpf": "70252617002",
-        "password": "b'\\xf4\\xd8q\\x96\\xb8\\x8f\\xc1Q!s\\xd3\\xe1G\\x04\\xf1\\xbd\\xf4Z\\xc1\\xb8z\\xc3\\xf9\\x88\\xef\\xc4[p\\x0fM\\xaa\\xe3'"
+      "name": "user 1",
+      "email": "user1@test.com",
+      "cpf": "70252617002",
+      "password": "b'\\xf4\\xd8q\\x96\\xb8\\x8f\\xc1Q!s\\xd3\\xe1G\\x04\\xf1\\xbd\\xf4Z\\xc1\\xb8z\\xc3\\xf9\\x88\\xef\\xc4[p\\x0fM\\xaa\\xe3'"
     }
-},
-
+  },
+  {
+    "model": "user.User",
+    "pk": 2,
+    "fields": {
+      "name": "user allowed",
+      "email": "userallowed@test.com",
+      "cpf": "15350946056",
+      "password": "b'\\xf4\\xd8q\\x96\\xb8\\x8f\\xc1Q!s\\xd3\\xe1G\\x04\\xf1\\xbd\\xf4Z\\xc1\\xb8z\\xc3\\xf9\\x88\\xef\\xc4[p\\x0fM\\xaa\\xe3'"
+    }
+  },
+  {
+    "model": "user.User",
+    "pk": 3,
+    "fields": {
+      "name": "user 10 per cent",
+      "email": "usercashback10@test.com",
+      "cpf": "63441618092",
+      "password": "b'\\xf4\\xd8q\\x96\\xb8\\x8f\\xc1Q!s\\xd3\\xe1G\\x04\\xf1\\xbd\\xf4Z\\xc1\\xb8z\\xc3\\xf9\\x88\\xef\\xc4[p\\x0fM\\xaa\\xe3'"
+    }
+  },
+  {
+    "model": "user.User",
+    "pk": 4,
+    "fields": {
+      "name": "user 15 per cent",
+      "email": "usercashback15@test.com",
+      "cpf": "15667808021",
+      "password": "b'\\xf4\\xd8q\\x96\\xb8\\x8f\\xc1Q!s\\xd3\\xe1G\\x04\\xf1\\xbd\\xf4Z\\xc1\\xb8z\\xc3\\xf9\\x88\\xef\\xc4[p\\x0fM\\xaa\\xe3'"
+    }
+  },
+  {
+    "model": "user.User",
+    "pk": 5,
+    "fields": {
+      "name": "user 20 per cent",
+      "email": "usercashback20@test.com",
+      "cpf": "98298867009",
+      "password": "b'\\xf4\\xd8q\\x96\\xb8\\x8f\\xc1Q!s\\xd3\\xe1G\\x04\\xf1\\xbd\\xf4Z\\xc1\\xb8z\\xc3\\xf9\\x88\\xef\\xc4[p\\x0fM\\xaa\\xe3'"
+    }
+  },
   {
     "model": "purchase_orders.PurchaseOrder",
     "pk": 1,
     "fields": {
-        "code": 1,
-        "value": 100.00,
-        "user_id": 1,
-        "status": "EM_VALIDACAO",
-        "date": "2020-12-25 00:00:00"
+      "code": 1,
+      "value": 100.00,
+      "user_id": 1,
+      "status": "EM_VALIDACAO",
+      "date": "2020-12-25 00:00:00"
     }
-}
+  },
+  {
+    "model": "purchase_orders.PurchaseOrder",
+    "pk": 2,
+    "fields": {
+      "code": 2,
+      "value": 1000.00,
+      "user_id": 3,
+      "status": "APROVADO",
+      "date": "2020-12-25 00:00:00"
+    }
+  },
+  {
+    "model": "purchase_orders.PurchaseOrder",
+    "pk": 3,
+    "fields": {
+      "code": 3,
+      "value": 500.00,
+      "user_id": 3,
+      "status": "APROVADO",
+      "date": "2020-10-25 00:00:00"
+    }
+  },
+  {
+    "model": "purchase_orders.PurchaseOrder",
+    "pk": 4,
+    "fields": {
+      "code": 4,
+      "value": 1500.00,
+      "user_id": 4,
+      "status": "APROVADO",
+      "date": "2020-12-25 00:00:00"
+    }
+  },
+  {
+    "model": "purchase_orders.PurchaseOrder",
+    "pk": 5,
+    "fields": {
+      "code": 5,
+      "value": 500.00,
+      "user_id": 4,
+      "status": "APROVADO",
+      "date": "2020-10-25 00:00:00"
+    }
+  },
+  {
+    "model": "purchase_orders.PurchaseOrder",
+    "pk": 6,
+    "fields": {
+      "code": 6,
+      "value": 500.00,
+      "user_id": 5,
+      "status": "APROVADO",
+      "date": "2020-10-25 00:00:00"
+    }
+  },
+  {
+    "model": "purchase_orders.PurchaseOrder",
+    "pk": 7,
+    "fields": {
+      "code": 7,
+      "value": 5000.00,
+      "user_id": 5,
+      "status": "APROVADO",
+      "date": "2020-12-25 00:00:00"
+    }
+  }
 ]

@@ -85,6 +85,6 @@ class PurchaseOrdersService:
         else:
             cashback_percentage = 20
 
-        order_cashback = round((order.value / 100) * cashback_percentage, ndigits=2)
+        order_cashback = int((order.value / 100) * cashback_percentage)
 
         return cashback_percentage, order_cashback
