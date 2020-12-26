@@ -16,6 +16,12 @@ class UserService:
     def create_user(self, data):
         self.utils.validate_cpf(data['cpf'])
         try:
+            if len(User.objects.filter(cpf=data['cpf'])) is not 0:
+                raise Exception('CPF exists')
+
+            if len(User.objects.filter(email=data['email'])) is not 0:
+                raise Exception('Email exists')
+
             new_user = User(cpf=data['cpf'],
                             name=data['name'],
                             email=data['email'],
@@ -28,6 +34,10 @@ class UserService:
     def login(self, data):
         try:
             user = User.objects.filter(Q(cpf=data['login']) | Q(email=data['login'])).first()
+
+            if user is None:
+                raise Exception('User not found')
+
             if user.password == str(self.__generate_password_hash(data['password'])):
                 payload_data = {
                     'name': user.name,
