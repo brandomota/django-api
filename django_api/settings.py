@@ -134,3 +134,8 @@ STATIC_URL = '/static/'
 # CASHBACK API DATA
 CASHBACK_API_HOST = os.environ.get('CASHBACK_API_HOST','https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com/')
 CASHBACK_API_TOKEN = os.environ.get('CASHBACK_API_TOKEN', 'default-token')
+
+# Heroku
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals(),databases=False,allowed_hosts=False, test_runner=False)
