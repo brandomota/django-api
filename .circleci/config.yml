@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@0.2.1
+  python: circleci/python@1.3.2
   docker: circleci/docker@1.5.0
 
 jobs:
@@ -9,9 +9,8 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
+      - python/install-packages:
+          pkg-manager: pip
       - run:
           command: chmod +x ./manage.py && ./manage.py test
           name: Test
@@ -24,8 +23,10 @@ jobs:
       - docker/check
       - docker/build:
           image: $DOCKER_IMAGE
+          tag: latest
       - docker/push:
           image: $DOCKER_IMAGE
+          tag: latest
 
 
 workflows:
