@@ -1,3 +1,4 @@
+![Main Build](https://circleci.com/gh/brandomota/django-api/tree/main.svg?style=svg)
 # django-api
 API Django para desafio técnico
 
