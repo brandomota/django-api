@@ -16,10 +16,10 @@ class UserService:
     def create_user(self, data):
         self.utils.validate_cpf(data['cpf'])
         try:
-            if len(User.objects.filter(cpf=data['cpf'])) is not 0:
+            if len(User.objects.filter(cpf=data['cpf'])) != 0:
                 raise Exception('CPF exists')
 
-            if len(User.objects.filter(email=data['email'])) is not 0:
+            if len(User.objects.filter(email=data['email'])) != 0:
                 raise Exception('Email exists')
 
             new_user = User(cpf=data['cpf'],
