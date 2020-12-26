@@ -15,7 +15,7 @@ class PurchaseOrdersSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PurchaseOrder
-        fields = ['id', 'code', 'value', 'status', 'cpf']
+        fields = ['id', 'code', 'value', 'status', 'cpf', 'date']
 
 
 class PurchaseOrdersDetailsSerializer(serializers.Serializer):

@@ -1,0 +1,24 @@
+[
+  {
+    "model": "user.User",
+    "pk": 1,
+    "fields": {
+        "name": "user 1",
+        "email": "user1@test.com",
+        "cpf": "70252617002",
+        "password": "b'\\xf4\\xd8q\\x96\\xb8\\x8f\\xc1Q!s\\xd3\\xe1G\\x04\\xf1\\xbd\\xf4Z\\xc1\\xb8z\\xc3\\xf9\\x88\\xef\\xc4[p\\x0fM\\xaa\\xe3'"
+    }
+},
+
+  {
+    "model": "purchase_orders.PurchaseOrder",
+    "pk": 1,
+    "fields": {
+        "code": 1,
+        "value": 100.00,
+        "user_id": 1,
+        "status": "EM_VALIDACAO",
+        "date": "2020-12-25 00:00:00"
+    }
+}
+]
