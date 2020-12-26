@@ -28,3 +28,5 @@ API Django para desafio técnico
 
 ## Informações adicionais
 - imagem docker podendo ser encontrada no endereço [`https://hub.docker.com/r/brandomota/django-api`](https://hub.docker.com/r/brandomota/django-api)
+- URL de acesso do projeto publicado no Heroku em [`https://brando-django-api.herokuapp.com/`](https://brando-django-api.herokuapp.com/)
+- documentação da api acessível na rota `/swagger`
