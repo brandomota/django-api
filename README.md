@@ -7,7 +7,7 @@ API Django para desafio técnico
 - Python 3.8+
 
 ## Variáveis de ambiente do sistema
-- `API_SECRET_KEY` : chave secreta da API utilizada para a criptografia das senhas. **defina uma nova ao executar em produção essa API**;
+- `SECRET_KEY` : chave secreta da API utilizada para a criptografia das senhas. **defina uma nova ao executar em produção essa API**;
 - `DEBUG_MODE`: ativa o modo de depuração da API, ativado por padrão. Recomenda-se desativar ao rodar em um ambiente de produção;
 - `API_HOSTNAME`: hostname dns/ endereço IP do servidor da API;
 - `DATABASE_NAME`: nome do banco de dados da API;

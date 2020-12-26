@@ -15,6 +15,7 @@ class UsersViewSet(ViewSet):
         self.user_service = UserService()
 
     @swagger_auto_schema(request_body=UserCreationSerializer,
+                         security=[],
                          responses={201:  openapi.Response('response description', UserSerializer), 400: 'bad request'})
     @action(methods=['POST'], detail=False)
     def create_user(self, request):
@@ -30,6 +31,7 @@ class UsersViewSet(ViewSet):
             return Response(data=serializer.errors, status=HTTP_400_BAD_REQUEST)
 
     @swagger_auto_schema(request_body=LoginSerializer,
+                         security=[],
                          responses={401: 'unauthorized',
                                     200: openapi.Response('response description', TokenSerializer)})
     @action(methods=['POST'], url_path='login', detail=False)

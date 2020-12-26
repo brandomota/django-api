@@ -5,12 +5,14 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_201_CREATED, HTTP_200_OK
 from rest_framework.viewsets import ViewSet
 
+from django_api.auth import ApiAuth
 from purchase_orders.serializers import PurchaseOrdersCreationSerializer, PurchaseOrdersSerializer, \
     PurchaseOrdersDetailsSerializer, CashbackQuerySerializer, CashbackTotalSerializer
 from purchase_orders.services import PurchaseOrdersService
 
 
 class PurchaseOrdersViewSet(ViewSet):
+    authentication_classes = (ApiAuth,)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
