@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 import os
 
@@ -62,6 +63,7 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -72,6 +74,12 @@ DATABASES = {
         'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'root'),
     }
 }
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'testDB'
+    }
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
