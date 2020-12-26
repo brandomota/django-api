@@ -24,3 +24,6 @@ API Django para desafio técnico
 - execute as migrations do projeto: `python manage.py migrate`;
 - inicie o devserver da API: `python manage.py runserver`.
 - para executar os testes da API,execute: `python manage.py test`
+
+## Informações adicionais
+- imagem docker podendo ser encontrada no endereço [`https://hub.docker.com/r/brandomota/django-api`](https://hub.docker.com/r/brandomota/django-api)
